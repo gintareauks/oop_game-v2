@@ -2,6 +2,7 @@
  * Project 4 - OOP Game App
  * Game.js */
 const overlay = document.getElementById("overlay");
+let hearts = document.querySelectorAll('.tries img');
 
  class Game {
     constructor() {
@@ -60,7 +61,6 @@ const overlay = document.getElementById("overlay");
     }
 
     removeLife() {
-        let hearts = document.querySelectorAll('.tries img');
         hearts[this.missed].src = 'images/lostHeart.png';
         this.missed++;
 
@@ -88,7 +88,6 @@ const overlay = document.getElementById("overlay");
         const ul = document.querySelector("ul")
         ul.innerHTML = "";
         const key = document.querySelectorAll(".key");
-        const tries = document.querySelectorAll(".tries");
 
         for (let i = 0; i < key.length; i++) {
             if (key[i].disabled = true) {
@@ -102,8 +101,8 @@ const overlay = document.getElementById("overlay");
             }
         }
 
-        for (let i = 0; i < tries.length; i++) {
-            tries[i].firstElementChild.src = `images/liveHeart.png`
+        for (let i = 0; i < hearts.length; i++) {
+            hearts[i].src = `images/liveHeart.png`
         }
     }
     

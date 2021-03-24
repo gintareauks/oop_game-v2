@@ -15,4 +15,5 @@ keyboard.addEventListener("click", (key) => {
     const buttonClicked = key.target;
     if (buttonClicked.tagName === 'BUTTON') {
     game.handleInteraction(key.target)
-    }})
+    }
+})
