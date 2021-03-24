@@ -44,7 +44,7 @@ let hearts = document.querySelectorAll('.tries img');
             this.activePhrase.showMatchedLetter(key.innerHTML);
 
             if (this.checkForWin()) {
-                this.gameOver(true);
+                this.gameOver(this.checkForWin);
                 this.resetGame();
             }
         }
