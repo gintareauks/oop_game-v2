@@ -42,12 +42,13 @@ let hearts = document.querySelectorAll('.tries img');
         } else {
             key.classList.add("chosen");
             this.activePhrase.showMatchedLetter(key.innerHTML);
+
+            if (this.checkForWin()) {
+                this.gameOver(true);
+                this.resetGame();
+            }
         }
 
-        if (this.checkForWin()) {
-            this.gameOver();
-            this.resetGame();
-        }
     }
 
     checkForWin() {
