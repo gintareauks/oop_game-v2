@@ -17,3 +17,13 @@ keyboard.addEventListener("click", (key) => {
     game.handleInteraction(key.target)
     }
 })
+
+document.addEventListener('keydown', (event) => {
+    const keyPressed = event.key;
+    const buttons = document.querySelectorAll('.key');
+    buttons.forEach((button) => {
+      if (button.textContent === keyPressed) {
+          button.click();
+      }
+    })
+})
