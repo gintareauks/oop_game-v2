@@ -1,12 +1,11 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
-
  class Phrase {
+
+    // receives a phrase parameter.
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
 
+    // adds letter placeholders to the display when the game starts.
     addPhraseToDisplay() {
         const ul = document.querySelector("ul");
         const letters = this.phrase.split("");
@@ -23,11 +22,13 @@
             }
         })
     }
-
+    
+    // checks to see if the letter selected by the player matches a letter in the phrase.
     checkLetter(letter) {
         return this.phrase.includes(letter);
     }
 
+    // eveals the letter(s) on the board that matches the player's selection.
     showMatchedLetter(letter) {
         const lettersAll = document.getElementsByClassName("letter");
 

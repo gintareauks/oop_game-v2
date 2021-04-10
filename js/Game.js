@@ -1,16 +1,17 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
 const overlay = document.getElementById("overlay");
 let hearts = document.querySelectorAll('.tries img');
 
- class Game {
+class Game {
     constructor() {
+        // used to track the number of missed guesses by the player.
         this.missed = 0;
+        // an array of five Phrase objects to use with the game.
         this.phrases = this.createPhrases();
+        // the phrase object that’s currently in play.
         this.activePhrase = null;
     }
     
+    // an array of five Phrase objects to use with the game.
     createPhrases() {
        return [
            new Phrase("a piece of cake"),
@@ -21,11 +22,13 @@ let hearts = document.querySelectorAll('.tries img');
        ]
     }
 
+    // randomly retrieves one of the phrases stored in the phrases array.
     getRandomPhrase() {
         const randomPhrase = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[randomPhrase];
     }
 
+    // hides the start screen overlay; adds random phrase to the board.
     startGame() {
         overlay.style.display = "none";
 
@@ -33,6 +36,8 @@ let hearts = document.querySelectorAll('.tries img');
         this.activePhrase.addPhraseToDisplay();
     }
 
+    // checks to see if the button clicked by the player matches a letter in the phrase, 
+    // and then directs the game based on a correct or incorrect guess.
     handleInteraction(key) {
         key.disabled = true;
 
@@ -51,6 +56,7 @@ let hearts = document.querySelectorAll('.tries img');
 
     }
 
+    // checks to see if the player has revealed all of the letters in the active phrase.
     checkForWin() {
         const hidden = document.querySelectorAll(".hide");
 
@@ -61,6 +67,7 @@ let hearts = document.querySelectorAll('.tries img');
         }
     }
 
+    // removes life (heart) if the guessed letter is wrong.
     removeLife() {
         hearts[this.missed].src = 'images/lostHeart.png';
         this.missed++;
@@ -70,6 +77,8 @@ let hearts = document.querySelectorAll('.tries img');
         } 
     }
 
+    // displays the original start screen overlay, 
+    // and depending on the outcome of the game, updates the overlay.
     gameOver(gameWon) {
         overlay.style.display = "flex";
 
@@ -84,6 +93,7 @@ let hearts = document.querySelectorAll('.tries img');
         this.resetGame();
     } 
 
+    // the game is restored to its initial state
     resetGame() {
         this.missed = 0;
         const ul = document.querySelector("ul")
