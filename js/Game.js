@@ -29,6 +29,7 @@ class Game {
     }
 
     // hides the start screen overlay; adds random phrase to the board.
+    // allows the user to guess letters by using/ typing the keyboard 
     startGame() {
         overlay.style.display = "none";
 
@@ -80,7 +81,8 @@ class Game {
     }
 
     // displays the original start screen overlay, 
-    // and depending on the outcome of the game, updates the overlay.
+    // depending on the outcome of the game, updates the overlay.
+    // does not allow the user to type once the game ends
     gameOver(gameWon) {
         overlay.style.display = "flex";
 
