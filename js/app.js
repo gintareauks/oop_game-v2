@@ -1,9 +1,10 @@
 const button = document.getElementById("btn__reset");
-const game = new Game();
+let game;
 
 
 // clicking 'start game' button, starts the game.
 button.addEventListener("click", () => {
+    game = new Game();
     game.startGame();
 })
 
@@ -17,9 +18,11 @@ keyboard.addEventListener("click", (key) => {
     }
 })
 
-// keyboard functionality added
+
+// function for keyboard functionality 
 // players can use their physical computer keyboard to enter guesses   
-document.addEventListener('keydown', (event) => {
+// function is called in game.js to avoid bugs
+function allowType() {
     const keyPressed = event.key;
     const buttons = document.querySelectorAll('.key');
     buttons.forEach((button) => {
@@ -27,4 +30,9 @@ document.addEventListener('keydown', (event) => {
           button.click();
       }
     })
-})
+}
+
+
+
+
+

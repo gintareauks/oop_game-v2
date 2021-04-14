@@ -34,6 +34,8 @@ class Game {
 
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
+
+        document.addEventListener('keydown', allowType)
     }
 
     // checks to see if the button clicked by the player matches a letter in the phrase, 
@@ -84,9 +86,11 @@ class Game {
 
         if (gameWon) {
             overlay.className = "win"
+            document.removeEventListener('keydown', allowType)
             overlay.querySelector("h1").textContent = "You Win!";
         } else {
             overlay.className = "lose";
+            document.removeEventListener('keydown', allowType)
             overlay.querySelector("h1").textContent = "Sorry, You Lost!";
         }
 
